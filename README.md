@@ -74,6 +74,33 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
     - Show basic user info
     - List of articles populated from author's created articles or author's favorited articles
 
+## Build docker image
+```sh
+# build
+$ docker build -t davidmccarty/realworld-front-angular:1.0.0 .
+# test at localhost:7080
+$ docker run -d -p 7080:80 davidmccarty/realworld-front-angular:1.0.0
+# push
+$ docker push davidmccarty/realworld-front-angular:1.0.0
+```
+
+## Deploy on kubernetes
+```sh
+$ cd kubernetes
+$ kubectl apply -f namespace.yaml
+$ kubectl apply -f deployment.yaml
+$ kubectl apply -f service.yaml
+$ kubectl apply -f ingress.yaml
+```
+Update DNS or the hosts file e.g.
+```
+# c:\Windows\System32\drivers\etc\hosts
+172.18.141.117 realworld-front-angular.mk-devops.local
+```
+Test from http://realworld-front-angular.mk-devops.local
+
+
+
 
 <br />
 
