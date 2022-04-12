@@ -1,0 +1,3 @@
+# Assumes packages are already downloaded and built into ./dist
+FROM nginx:alpine
+COPY ./dist /usr/share/nginx/html

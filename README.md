@@ -82,6 +82,15 @@ $ docker build -t davidmccarty/realworld-front-angular:1.0.0 .
 $ docker run -d -p 7080:80 davidmccarty/realworld-front-angular:1.0.0
 # push
 $ docker push davidmccarty/realworld-front-angular:1.0.0
+#
+# Build for pipeline
+$ npm install -g @angular/cli
+$ yarn install
+$ ng build
+$ docker build -f dockerfile-pipeline -t realworld-front-angular-pipeline:1.0.0 .
+$ docker run -d -p 7080:80 realworld-front-angular-pipeline:1.0.0
+$ docker tag realworld-front-angular-pipeline:1.0.0 davidmccarty/realworld-front-angular-pipeline:1.0.0
+$ docker push davidmccarty/realworld-front-angular-pipeline:1.0.0
 ```
 
 ## Deploy on kubernetes
